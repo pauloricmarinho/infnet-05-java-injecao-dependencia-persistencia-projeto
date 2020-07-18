@@ -15,9 +15,9 @@ import br.edu.infnet.emprestimo.service.ParcelaService;
 @Controller
 public class FinanceiroController {
 	
-	private @Autowired ClienteService service;
+	private @Autowired ClienteService serviceCliente;
 	
-	private @Autowired ParcelaService servParcela;
+	private @Autowired ParcelaService serviceParcela;
 	
 	@GetMapping("/balanco-financeiro")
 	public String listar(Model model) {
@@ -26,7 +26,7 @@ public class FinanceiroController {
 	
 	@GetMapping("/pagamentos/cliente/{id}")
 	public String debitos(Model model,@PathVariable("id") Long id) {
-		Cliente cliente = service.buscar(id);
+		Cliente cliente = serviceCliente.buscar(id);
 		
 		model.addAttribute("cliente",cliente);
 		return "financeiro/lista-emprestimo-cliente";
@@ -36,14 +36,16 @@ public class FinanceiroController {
 	public String operacaoParcela(Model model,@PathVariable("id") Long id, @PathVariable("parcela") Long parcela, @PathParam("op") String operacao) {
 		
 		if(operacao.equals("PAGAR")) {
-			servParcela.pagar(parcela);
+			serviceParcela.pagar(parcela);
 		}else {
-			servParcela.cancelar(parcela);
+			serviceParcela.cancelar(parcela);
 		}
 		
-		Cliente cliente = service.buscar(id);
+		Cliente cliente = serviceCliente.buscar(id);
 		
 		model.addAttribute("cliente",cliente);
 		return "financeiro/lista-emprestimo-cliente";
 	}
+	
+	
 }

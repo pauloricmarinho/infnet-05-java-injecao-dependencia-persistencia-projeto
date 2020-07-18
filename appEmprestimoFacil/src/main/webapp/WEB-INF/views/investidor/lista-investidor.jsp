@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <jsp:include page="../template/nav.jsp" flush="true"></jsp:include>
@@ -25,13 +26,34 @@
 			   <tr>
 			      <th>Código</th>
 			      <th>Razão Social</th>
+			      <th>Data Cadastro</th>
 			      <th>Taxa de Juros</th>
 			      <th>Saldo</th>
 			      <th>Operações</th>
 			   </tr>
 			</thead>
 			
-			<tbody></tbody>
+			<tbody>
+			<c:forEach items="${investidores}" var="investidor">
+				<tr>
+				      <td>${investidor.id}</td>
+				      <td>${investidor.razaoSocial}</td>
+				      <td>${investidor.dataAtualizacao}</td>
+				      <td>${investidor.taxa}</td>
+				      <td>${investidor.saldo}</td>
+				      <td>
+				      
+				       	<a href='<c:url value="/investidores/editar/${investidor.id}" />' > <button class="btn btn-primary"><i class="fa fa-edit"></i></button> </a>			       
+			         	<a href='<c:url value="/investidores/excluir/${investidor.id}" />' > <button class="btn btn-danger"><i class="fa fa-trash"></i></button> </a>
+		         	 	<a href='<c:url value='/emprestimos/novo?clienteID=${investidor.id}&investidorID=1'/>' > <button class="btn btn-info"><i class="fa fa-users"></i></button> </a>
+				      
+				      </td>
+				   </tr>
+			
+			</c:forEach>
+			
+			
+			</tbody>
 		</table>
 	</div>
  
