@@ -22,7 +22,6 @@ public class FinanceiroController {
 	
 	private @Autowired ParcelaService serviceParcela;
 	
-	
 	@GetMapping("/balanco-financeiro")
 	public String listar(Model model) {
 		return "financeiro/lista-financeiro";
@@ -65,8 +64,5 @@ public class FinanceiroController {
 		return "financeiro/lista-financeiro";
 	}
 	
-	
-	
-	
-	
+		
 }

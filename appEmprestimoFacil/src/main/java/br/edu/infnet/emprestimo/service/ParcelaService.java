@@ -85,7 +85,7 @@ public class ParcelaService {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.getTime();
 	}
-
+	
 	public List<Parcela> buscarParcelaBalanco(Boolean pago) {
 		
 		return repo.findByPagoOrderByVencimentoAsc(pago);

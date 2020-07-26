@@ -20,4 +20,13 @@ public class InvestidorService {
 	public Investidor buscar(Long id) {
 		return repo.findById(id).get();
 	}
+	
+	public Investidor salvar(Investidor invest) {
+		return repo.save(invest);
+	}
+	
+	public void remover(Investidor invest) {
+			repo.delete(invest);			
+	}
+	
 }

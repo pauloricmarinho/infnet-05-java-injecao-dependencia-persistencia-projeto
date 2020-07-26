@@ -9,7 +9,8 @@ import br.edu.infnet.emprestimo.model.Parcela;
 
 @Repository
 public interface ParcelaRepository extends JpaRepository<Parcela, Long> {
-
+	
 	List<Parcela> findByPagoOrderByVencimentoAsc(Boolean pago);
+
 
 }
