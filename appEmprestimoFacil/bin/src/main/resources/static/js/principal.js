@@ -1,6 +1,6 @@
 
 var validaForm = function() {
-  $("#cadastro, #alteracao, #valores").validate({
+  $("#cadastro, #alteracao").validate({
     rules: {    
     	nome: {
         required: true,
@@ -24,13 +24,7 @@ var validaForm = function() {
       	}, 
       	cnpj: {
         required: true
-      	},
-      	valorBase: {
-        required: true
-      	},
-      	cliente: {
-        required: true
-      	},
+      	},   
     },
     messages: {
       nome: {
@@ -55,9 +49,6 @@ var validaForm = function() {
       },
       cnpj: {
           required: "Informe o CNPJ do Investidor"
-      },
-      valorBase: {
-          required: "Informe o Valor do Emprestimo"
       }
     },
     submitHandler: function(form) {
@@ -69,7 +60,6 @@ var validaForm = function() {
 
 var montarMascaras = function(){
 
-	$('#valorBase').mask('00000');
 	$('#cpf').mask('000.000.000-00', {placeholder: "999.999.999-99" });
 	$('#cnpj').mask('00.000.000/0000-00', {placeholder: "99.999.999/9999-99" });
 	$('#cep').mask('00000-000', {placeholder: "99999-999" });
