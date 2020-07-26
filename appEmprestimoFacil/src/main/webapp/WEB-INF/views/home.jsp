@@ -111,8 +111,8 @@
 							<br>
 						</p>
 						<a href="<c:url value='/emprestimos/novo'/>" class="btn btn-primary"><i class="fa fa-credit-card"></i></a> 
-						<a href="#"	class="btn btn-danger"><i class="fa fa-money"></i></a>
-						<a href="<c:url value='/balanco-financeiro'/>"	class="btn btn-success"><i class="fa fa-bars"></i> </a>
+						<a href="<c:url value='/balanco-financeiro/EMPRESTIMOS'/>"	class="btn btn-danger"><i class="fa fa-money"></i></a>
+						<a href="<c:url value='/balanco-financeiro/PAGAMENTOS'/>"	class="btn btn-success"><i class="fa fa-bars"></i> </a>
 					</div>
 				</div>
 				

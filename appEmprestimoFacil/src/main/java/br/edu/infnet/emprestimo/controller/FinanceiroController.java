@@ -1,5 +1,7 @@
 package br.edu.infnet.emprestimo.controller;
 
+import java.util.List;
+
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import br.edu.infnet.emprestimo.model.Cliente;
+import br.edu.infnet.emprestimo.model.Parcela;
 import br.edu.infnet.emprestimo.service.ClienteService;
 import br.edu.infnet.emprestimo.service.ParcelaService;
 
@@ -45,6 +48,20 @@ public class FinanceiroController {
 		
 		model.addAttribute("cliente",cliente);
 		return "financeiro/lista-emprestimo-cliente";
+	}
+	
+	@GetMapping("/balanco-financeiro/{movimento}")
+	public String balancoFinanceiro(Model model,@PathVariable("movimento") String movimento) {
+		
+		List<Parcela> parcelas = null;
+		if(movimento.equals("PAGAMENTOS")) {
+			parcelas = serviceParcela.buscarParcelaBalanco(true);
+		}else {
+			parcelas = serviceParcela.buscarParcelaBalanco(false);
+		}
+		
+		model.addAttribute("parcelas",parcelas);
+		return "financeiro/lista-financeiro";
 	}
 	
 	
