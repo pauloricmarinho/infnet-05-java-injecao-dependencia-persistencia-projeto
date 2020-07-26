@@ -16,7 +16,7 @@
 		</nav>
 		
 		<h3>   
-		    <a class="btn btn-primary" href="<c:url value='/clientes/novo'/>"> <i class="fa fa-save"></i> Cadastrar um Novo Investidor</a>
+		    <a class="btn btn-primary" href="<c:url value='/investidores/novo'/>"> <i class="fa fa-save"></i> Cadastrar um Novo Investidor</a>
 		</h3>
 		
 		<span class="label label-success">${msg}</span>

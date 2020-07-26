@@ -92,7 +92,7 @@
 							Seja um novo Investidor da Emprestimo Fácil.<br>
 							<br>
 						</p>
-						<a href="#" class="btn btn-primary"><i class="fa fa-university"></i></a> 
+						<a href="<c:url value='/investidores/novo'/>" class="btn btn-primary"><i class="fa fa-university"></i></a> 
 						<a href="<c:url value='/investidores'/>" class="btn btn-primary"><i class="fa fa-list"></i></a>
 					</div>
 				</div>

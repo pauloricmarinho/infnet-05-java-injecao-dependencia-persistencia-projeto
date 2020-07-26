@@ -15,8 +15,8 @@
 		</nav>
 		
 	 
-		<a class="btn btn-primary" href="<c:url value='/clientes/novo'/>"> <i class="fa fa-save"></i> Empréstimos</a>
-		<a class="btn btn-primary" href="<c:url value='/clientes/novo'/>"> <i class="fa fa-save"></i> Pagamentos</a>
+		<a class="btn btn-danger" href="<c:url value='/balanco-financeiro/EMPRESTIMOS'/>"> <i class="fa fa-save"></i> Empréstimos</a>
+		<a class="btn btn-primary" href="<c:url value='/balanco-financeiro/PAGAMENTOS'/>"> <i class="fa fa-save"></i> Pagamentos</a>
 		<br><br>
 		
 		<span class="label label-success">${msg}</span>
@@ -24,15 +24,32 @@
 		<table class="table table-striped" >
 			<thead>
 			   <tr>
-			      <th>Código</th>
-			      <th>Razão Social</th>
-			      <th>Taxa de Juros</th>
-			      <th>Saldo</th>
-			      <th>Operações</th>
+			      <th>Número Boleto</th>
+			      <th>Cliente</th>
+			      <th>Investidor</th>
+			      <th>Numero Parcela</th>
+			      <th>Valor Recebido</th>
+			      <th>Data de Vencimento</th>
+			      <th>Data da Quitação</th>
 			   </tr>
 			</thead>
 			
-			<tbody></tbody>
+			<tbody>
+			
+			<c:forEach items="${parcelas}" var="p">
+				<tr>
+			      <td>${p.id}</td>
+			      <td>${p.emprestimo.cliente.nome}</td>
+			      <td>${p.emprestimo.investidor.razaoSocial}</td>
+			      <td>${p.numero}</td>
+			      <td>${p.valor}</td>
+			      <td>${p.vencimento}</td>
+			      <td>${p.quitacao}</td>
+			   </tr>
+			
+			</c:forEach>
+			
+			</tbody>
 		</table>
 	</div>
  

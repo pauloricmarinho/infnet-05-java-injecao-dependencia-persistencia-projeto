@@ -5,6 +5,13 @@
 
 <jsp:include page="../template/nav.jsp" flush="true"></jsp:include>
    
+   	<script src="../jquery/jquery-3.3.1.js"></script>
+	<script src="../jquery/jquery.mask.min.js"></script>
+	<script src="../jquery/jquery.validate.min.js"></script>
+	
+   	<script src="../js/principal.js"></script>
+   
+   
    <div class="container">
 		<br>
 		<nav aria-label="breadcrumb">
@@ -23,7 +30,7 @@
 					<div class="row">
 						<div class="col-sm-8">
 							<label>Cliente</label> 
-								<select class="form-control" name="clienteID" onchange="this.form.submit();"> 
+								<select class="form-control" id="clienteID" name="clienteID" onchange="this.form.submit();"> 
 									<option value="0">Selecione o Cliente</option>								
 									<c:forEach items="${clientes}" var="c">
 										<option value="${c.id}" <c:if test="${cliente.id == c.id}">selected</c:if> >${c.nome}</option>
@@ -58,15 +65,14 @@
 				</form> <!-- Final do FORM Filtro -->
 				
 			
-				<form action="<c:url value='/emprestimos/parcelas'/>" method="post">
+				<form id="valores" action="<c:url value='/emprestimos/parcelas'/>" method="post">
 					<div class="form-group">
 						<div class="row">
 								<input type="hidden" class="form-control"	name="cliente.id" value="${cliente.id}">
 								<input type="hidden" class="form-control"	name="investidor.id" value="${investidor.id}">	
-						
 							<div class="col-sm-3">
 								<label>Valor</label> 
-								<input type="text" id="valorPago" name="valorBase" class="form-control"	placeholder="Valor"  onblur="javascript: calcularValor();">
+								<input type="text" id="valorBase" name="valorBase" class="form-control"	placeholder="Valor"  onblur="javascript: calcularValor();">
 							</div>
 							<div class="col-sm-3">
 								<label>Valor Pagamento + Juros</label> 
@@ -87,8 +93,9 @@
 						</div>
 					</div>
 					
-					<button  class="btn btn-primary" value="Enviar"><i class="fa fa-save"></i> Consulta Condições </button>
+					<button id="btn-enviar"  class="btn btn-primary" value="Enviar"><i class="fa fa-save"></i> Consulta Condições </button>
 					<input type="reset" class="btn btn-success" value="Limpar">
+					
 				</form>
 
 
@@ -97,11 +104,17 @@
 		<script>
 			function calcularValor(){
 				var valorTaxa = parseFloat($("#valorTaxa").val());
-				var valorEmprestimo = parseFloat($("#valorPago").val());
+				var valorEmprestimo = parseFloat($("#valorBase").val());
 				var valorPagar = valorEmprestimo +  (valorEmprestimo * valorTaxa);
 				$("#valorPagarAux").attr("value", valorPagar);
 				$("#valorPagar").attr("value", valorPagar);
 				
 			}
-
+		</script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){					
+				montarMascaras();			
+				validaForm();			
+			});
 		</script>
