@@ -16,7 +16,7 @@
 		</nav>
 		
 		<h3>   
-		    <a class="btn btn-primary" href="<c:url value='/clientes/novo'/>"> <i class="fa fa-save"></i> Cadastrar um Novo Investidor</a>
+		    <a class="btn btn-primary" href="<c:url value='/investidores/novo'/>"> <i class="fa fa-save"></i> Cadastrar um Novo Investidor</a>
 		</h3>
 		
 		<span class="label label-success">${msg}</span>
@@ -45,7 +45,7 @@
 				      
 				       	<a href='<c:url value="/investidores/editar/${investidor.id}" />' > <button class="btn btn-primary"><i class="fa fa-edit"></i></button> </a>			       
 			         	<a href='<c:url value="/investidores/excluir/${investidor.id}" />' > <button class="btn btn-danger"><i class="fa fa-trash"></i></button> </a>
-		         	 	<a href='<c:url value='/emprestimos/novo?clienteID=${investidor.id}&investidorID=1'/>' > <button class="btn btn-info"><i class="fa fa-users"></i></button> </a>
+		         	 	<a href='<c:url value='/emprestimos/novo?clienteID=${cliente.id}&investidorID=${investidor.id}'/>' > <button class="btn btn-info"><i class="fa fa-users"></i></button> </a>
 				      
 				      </td>
 				   </tr>
