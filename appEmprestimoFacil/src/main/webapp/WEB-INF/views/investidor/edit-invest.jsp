@@ -25,16 +25,16 @@
 		<a class="btn btn-primary" href="<c:url value='/investidores'/>"><i class="fa fa-list"></i> Listagem de Investidores</a>
 
 			<form action="<c:url value='/investidores/salvar'/>" method="post">
-				<input type="hidden" class="form-control" value="${investidor.id}" name="id">		
+				<input type="hidden" class="form-control" value="${invest.id}" name="id">		
 				<div class="form-group">
 					<div class="row">
 						<div class="col-sm-8">
 							<label>Razao Social</label> 
-							<input type="text" class="form-control"	name="razaoSocial" value="${investidor.razaoSocial}">
+							<input type="text" class="form-control"	name="razaoSocial" value="${invest.razaoSocial}">
 						</div>
 						<div class="col-sm-4">
 							<label>CNPJ</label> 
-							<input type="text" class="form-control" name="cnpj" value="${investidor.cnpj}">
+							<input type="text" class="form-control" name="cnpj" value="${invest.cnpj}">
 						</div>
 					</div>
 				</div>
@@ -44,12 +44,12 @@
 					<div class="row">
 						<div class="col-sm-3">
 							<label>Taxa de Juros</label>
-							<input type="text" class="form-control" name="taxa" value="${investidor.taxa}">
+							<input type="text" class="form-control" name="taxa" value="${invest.taxa}">
 						</div>
 						
 						<div class="col-sm-3">
 							<label>Saldo Disponível</label> 
-							<input type="text" class="form-control" name="saldo" value="${investidor.saldo}">
+							<input type="text" class="form-control" name="saldo" value="${invest.saldo}">
 						</div>
 						
 					</div>
